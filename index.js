@@ -20,29 +20,25 @@
 	}
 	
 	function splitDivs() {
-        let top = parseInt(getComputedStyle(yellow).top);
-        let left = parseInt(getComputedStyle(yellow).left);
-        let size = '30px';
+		let nodes = document.getElementsByClassName('node');
+		for(let node of nodes) {
+			node.style.width = '30px';
+		}
+		let top = 135;
+		let left = 135;
 		yellow.style.top = top + 55;
         yellow.style.left = left + 55;
-        yellow.style.height = size;
-        yellow.style.width = size;
 		pink.style.top = top + 55;
         pink.style.left = left - 55;
-        pink.style.height = size;
-        pink.style.width = size;
 		green.style.top = top - 55;
         green.style.left = left - 55;
-        green.style.height = size;
-        green.style.width = size;
 		blue.style.top = top - 55;
         blue.style.left = left + 55;
-        blue.style.height = size;
-        blue.style.width = size;
 	}
 	
 	function rotateContainer() { 
-		container.style.transform = `rotate(360deg)`;
+		rotate = rotate + 360;
+		container.style.transform = `rotate(${rotate}deg)`;
 	}
 	
 	function shrinkDivs() {
@@ -69,10 +65,10 @@
 	
 	function animateLogo() {
 		splitDivs();
-		setTimeout(rotateContainer,700);
-		setTimeout(shrinkDivs,1500);
-		setTimeout(growDivs,2000);
-        setTimeout(makeBar,2500);
+		setTimeout(rotateContainer,500);
+		setTimeout(shrinkDivs,1300);
+		setTimeout(growDivs,1600);
+        setTimeout(makeBar,2200);
 	}
 	
 	function makeBar() {
@@ -81,18 +77,19 @@
         yellow.style.width = `${parseInt(getComputedStyle(yellow).width) + 140}px`;
         pink.style.transformOrigin = "15px 15px";
         pink.style.transform = `rotate(-20deg)`;
-        pink.style.width = `${parseInt(getComputedStyle(yellow).width) + 140}px`;
+        pink.style.width = `${parseInt(getComputedStyle(pink).width) + 140}px`;
         green.style.transformOrigin = "15px 15px";
         green.style.transform = `rotate(70deg)`;
-        green.style.width = `${parseInt(getComputedStyle(yellow).width) + 140}px`;
+        green.style.width = `${parseInt(getComputedStyle(green).width) + 140}px`;
         blue.style.transformOrigin = "15px 15px";
         blue.style.transform = `rotate(160deg)`;
-        blue.style.width = `${parseInt(getComputedStyle(yellow).width) + 140}px`;
+        blue.style.width = `${parseInt(getComputedStyle(blue).width) + 140}px`;
 	}
 	
 	let container = document.getElementById("container");
-	let yellow,pink,green,blue;
+	let yellow,pink,green,blue, rotate = 360;
 	makeDivs();
+	animateLogo();
 	setInterval(animateLogo,3200);
 	
 })();

@@ -3,7 +3,7 @@
 	height: 300px;
 	position: relative;
 	margin: auto;
-	transition : transform .4s ease-in-out ;
+	transition : transform .3s ease-in ;
 }
 
 .node {
@@ -14,7 +14,7 @@
 	top: calc(50% - 15px);
 	left: calc(50% - 15px);
 	opacity: 0.7;
-	transition : left .4s, top .4s, width .4s ease-out ; 
+	transition : left .2s, top .2s, width .15s ease-in ; 
 }
 
 #yellow {
